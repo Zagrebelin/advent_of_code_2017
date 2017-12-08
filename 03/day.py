@@ -48,12 +48,12 @@ class Part2(Part1):
         stop = int(data)
         matrix = {complex(0, 0): 1}
         for pos in self.next_cell_coord(matrix):
-            current = sum(self.neigbours(matrix, pos))
+            current = sum(self.neigbours_values(matrix, pos))
             matrix[pos] = current
             if current> stop:
                 return current
 
-    def neigbours(self, matrix, pos, default=0):
+    def neigbours_values(self, matrix, pos, default=0):
         for dx in [-1, 0, 1]:
             for dy in [-1, 0, 1]:
                 yield matrix.get(pos + complex(dx, dy), default)
